@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using my_vs_project.Data;
+using my_vs_project.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+var NorthwindString = builder.Configuration.GetConnectionString("Northwind");
+builder.Services.AddDbContext<NorthwindContext>(options =>
+    options.UseSqlServer(NorthwindString));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
