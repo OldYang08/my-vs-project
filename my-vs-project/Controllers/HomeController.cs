@@ -28,5 +28,10 @@ namespace my_vs_project.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult GitHub()
+        {
+            return Redirect("https://github.com/OldYang08/my-vs-project");
+        }
     }
 }
