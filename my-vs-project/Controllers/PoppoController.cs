@@ -7,6 +7,7 @@ namespace my_vs_project.Controllers
         public IActionResult Index()
         {
             return View();
+
         }
     }
 }
